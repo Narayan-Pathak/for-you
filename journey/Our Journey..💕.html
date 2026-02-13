@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Journey ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: #000; overflow: hidden; }
+
+        /* --- WELCOME SCREEN FIXED --- */
+#welcome-screen {
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, #ff4d6d, #4a0e0e);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 1s ease-in-out;
+}
+
+/* Is content wrapper se sab line mein aayega */
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Text, Dil aur Button ke beech ki fixed duri */
+}
+
+.welcome-content h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
+    margin: 0; /* Extra margin hata diya */
+}
+
+.pulse-heart { 
+    font-size: 100px; /* Thoda bada kar diya center attraction ke liye */
+    animation: pulse 1.5s infinite; 
+    cursor: pointer;
+    line-height: 1;
+    margin: 10px 0;
+}
+
+@keyframes pulse { 
+    0% { transform: scale(1); } 
+    50% { transform: scale(1.15); } 
+    100% { transform: scale(1); } 
+}
+
+.start-btn {
+    padding: 12px 35px; 
+    border: none; 
+    border-radius: 50px;
+    background: white; 
+    color: #ff4d6d; 
+    font-weight: bold; 
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.start-btn:hover {
+    transform: scale(1.05);
+    background: #fff0f3;
+}
+
+/* Animated Scroll Arrow */
+
+.scroll-arrow {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    font-size: 2rem;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    animation: arrowBounce 2s infinite;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+}
+
+
+
+@keyframes arrowBounce {
+
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+
+    40% { transform: translateY(-10px); }
+
+    60% { transform: translateY(-5px); }
+
+}
+        /* --- TIMELINE CSS --- */
+        .bg-hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .heart-particle { position: absolute; color: rgba(255, 77, 109, 0.4); animation: float 6s infinite linear; bottom: -50px; }
+        @keyframes float { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }
+
+        .container { height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; position: relative; z-index: 2; display: none; }
+        section { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; scroll-snap-align: start; padding: 20px; text-align: center; color: white; position: relative; }
+
+        .card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2); padding: 30px; border-radius: 30px; max-width: 450px; width: 90%; }
+        .year-title { font-family: 'Dancing Script', cursive; font-size: 4rem; color: #ff4d6d; margin-bottom: 10px; }
+        .photo-frame { width: 100%; height: 250px; background-size: cover; background-position: center; border-radius: 20px; margin-bottom: 20px; border: 3px solid rgba(255, 255, 255, 0.3); background-color: #333;}
+
+        nav { position: fixed; top: 25px; left: 50%; transform: translateX(-50%); z-index: 100; display: flex; gap: 10px; background: rgba(0, 0, 0, 0.5); padding: 8px 15px; border-radius: 30px; backdrop-filter: blur(5px); display: none; }
+        nav a { color: #ffb199; text-decoration: none; font-weight: 600; font-size: 0.75rem; }
+
+        /* Background Gradients */
+        #y2021 { background: linear-gradient(45deg, #1a1a1a, #4a0e0e); }
+        #y2022 { background: linear-gradient(45deg, #0f0c29, #302b63); }
+        #y2023 { background: linear-gradient(45deg, #2c3e50, #000000); }
+        #y2024 { background: linear-gradient(45deg, #870000, #190a05); }
+        #y2025 { background: linear-gradient(45deg, #1e130c, #9a0606); }
+        #y2026 { background: radial-gradient(circle, #ff4d6d, #800020); }
+
+		/* Unique Animated Indicator */
+.unique-scroll-hint {
+    position: absolute;
+    bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    animation: bounceDesi 2s infinite;
+    text-decoration: none;
+    z-index: 10;
+}
+
+.jhumka {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)); /* Golden Glow */
+}
+
+.scroll-text {
+    font-size: 0.7rem;
+    color: #ffb199;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+@keyframes bounceDesi {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* Hand in Hand Animation */
+.hand-holder {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: handShake 2.5s infinite ease-in-out;
+    text-decoration: none;
+}
+
+.hand-icon {
+    font-size: 3rem;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+}
+
+@keyframes handShake {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 1; }
+}
+
+.love-tag {
+    color: white;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    background: rgba(255, 77, 109, 0.5);
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+
+/* Unique Hand-in-Hand Glow Animation */
+.hand-container {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    z-index: 20;
+}
+
+.hand-symbol {
+    font-size: 3.5rem;
+    position: relative;
+    animation: heartBeat 2s infinite ease-in-out;
+    filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.8));
+}
+
+/* Peeche ek mitha sa glow */
+.hand-symbol::after {
+    content: '∞';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.2rem;
+    color: #ffd700;
+    animation: rotateLoop 4s infinite linear;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes rotateLoop {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.together-text {
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    text-shadow: 0 0 10px #ff4d6d;
+}
+    </style>
+</head>
+<body>
+
+    <div id="welcome-screen">
+        <div class="welcome-content">
+            <h1>Our Journey</h1>
+            <div class="pulse-heart" onclick="startExperience()">❤️</div>
+            <button class="start-btn" onclick="startExperience()">Tap to Open My Heart</button>
+        </div>
+    </div>
+
+    <div class="bg-hearts" id="heartContainer"></div>
+
+    <nav id="mainNav">
+        <a href="#y2021">2021</a>
+        <a href="#y2022">2022</a>
+        <a href="#y2023">2023</a>
+        <a href="#y2024">2024</a>
+        <a href="#y2025">2025</a>
+        <a href="#y2026">2026</a>
+    </nav>
+
+    <div class="container" id="mainContainer">
+       <section id="y2021">
+    <div class="card">
+        <h1 class="year-title">2021</h1>
+        
+        <video width="100%" height="250px" autoplay muted loop playsinline style="border-radius: 20px; object-fit: cover; border: 3px solid rgba(255, 255, 255, 0.3); margin-bottom: 20px;">
+            <source src="/Users/hp/Downloads/vid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <p>"Yahan se shuru hui hamari mithi si shuruwat."</p>
+		
+    </div>
+	 
+	<a href="#y2026" class="hand-container">
+    <div class="hand-symbol">👩‍❤️‍👨</div> <div class="together-text">Hamesha ke liye...</div>
+</a>
+</section>
+
+        <section id="y2022">
+            <div class="card">
+                <h1 class="year-title">2022</h1>
+                <div class="photo-frame" style="background-image: url('/Users/hp/Downloads/_hug.jpg');"></div>
+                <p>"2022 me humne saath hasna seekha,
+saath ladna bhi 😅
+par har ladai ke baad
+tujhse aur zyada pyaar ho gaya 💫"</p>
+            </div>
+			 
+			<a href="#y2022" class="unique-scroll-hint">
+    <span class="jhumka">🪘</span> <span class="scroll-text">Next Year 🌹</span>
+</a>
+        </section>
+
+        <section id="y2023">
+           <div class="card">
+        <h1 class="year-title">2023</h1>
+            <video width="100%" height="250px" autoplay muted loop playsinline style="border-radius: 20px; object-fit: cover; border: 3px solid rgba(255, 255, 255, 0.3); margin-bottom: 20px;">
+            <source src="/Users/hp/Downloads/vid1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+                <p>"Itne jhagde karke bhi sath rahke Aise kuch harkte ki aur abhi bhi karte hai Pappi Shappii..💋👅 <div class="br"></div>Ek dusre ke Pasndida Flavor Ban gaye hai" 😂💕."</p>
+            </div>
+			 
+			<a href="#y2024" class="unique-scroll-hint">
+    <span class="jhumka">✨</span>
+    <span class="scroll-text">Scroll For Love ❤️</span>
+</a>
+        </section>
+
+        <section id="y2024">
+
+			 
+				 <div class="card">
+                <h1 class="year-title">2024</h1>
+                <div class="photo-frame" style="background-image: url('/Users/hp/Downloads/222.jpg');"></div>
+                <p>"2024 ne hume samjhaaya
+ki pyaar sirf baatein nahi,
+saath nibhana hota hai —
+aur tu har baar mere saath khadi rahi 🫶"</p>
+            </div>
+			 
+			<a href="#y2023" class="unique-scroll-hint">
+    <span class="jhumka">💍</span> 
+    <span class="scroll-text">Yaadein 💎</span>
+</a>
+        </section>
+
+        <section id="y2025">
+            <div class="card">
+                <h1 class="year-title">2025</h1>
+                <div class="photo-frame" style="background-image: url('/Users/hp/Downloads/Collage\ de\ Fotos\ Natural\ Floral\ Verde.jpg');"></div>
+                <p>"2025… thode sapne, thoda struggle,
+par ek cheez bilkul clear hai —
+chahe kuch bhi ho jaaye,
+mera haath sirf tera haath dhoondhega 🤞❤️"</p>
+            </div>
+			 
+			<a href="#y2025" class="unique-scroll-hint">
+    <span class="jhumka">🌹</span>
+    <span class="scroll-text">Humara Safar ✨</span>
+</a>
+        </section>
+
+        <section id="y2026">
+            <div class="card">
+                <div style="font-size: 60px;">🌹</div>
+                <h2 style="font-family: 'Dancing Script'; font-size: 2.5rem;">Happy Valentine's Day</h2>
+                <p>"2026 aur aane wale saare saal…
+main sirf itna chahta hoon
+ki tere naam ke aage
+mera naam ho 💍🥹
+aur duniya bole — Suno Mrs. Pathak  🥰  "I Love You! So much meri pyari mottiiii ...👅💕🫶 Ever And Forever"</p>
+            </div>
+			<p>One Last Scroll Kr Baby</p>
+			<a href="#y2022" class="scroll-arrow">︾</a>
+			
+        </section>
+		<section id="Promise">
+            <div class="card">
+                <div style="font-size: 60px;">🌹</div>
+                <h2 style="font-family: 'Dancing Script'; font-size: 2.5rem;">Promise</h2>
+                <p>Mottiii…💕🫶
+2021 se leke aaj tak,
+aur aaj se leke hamesha ke liye —
+tu hi meri Valentine hai, aur tu hi rahegi ....  Meri Jivansathi Banegi ...?
+माझी सौभाग्यवती होणार का ......?
+❤️</p>
+<p>“सुन न motti 😄
+बॉयफ्रेंड–गर्लफ्रेंड बहुत हो गइल,
+अब बता —
+हमार बीवी बन के
+जिंदगी भर परेशान करबू का?” 😜❤️</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function startExperience() {
+            document.getElementById('welcome-screen').style.transform = 'translateY(-100%)';
+            document.getElementById('mainContainer').style.display = 'block';
+            document.getElementById('mainNav').style.display = 'flex';
+            createHearts();
+        }
+
+        function createHearts() {
+            const container = document.getElementById('heartContainer');
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-particle');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                container.appendChild(heart);
+            }
+        }
+    </script>
+</body>
+</html>
